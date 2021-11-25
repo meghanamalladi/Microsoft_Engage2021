@@ -1,0 +1,298 @@
+{% load socialaccount %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>{% block title %}{% endblock title %} | TVT</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">The Vaccine Tracker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact Us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/upload">Upload Data</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/view">View Data</a>
+        </div>
+
+       <ol class="overflow-x-auto ml-auto -secondary d-flex ai-center list-reset h100 user-logged-out" role="presentation">
+
+            {% if user.is_authenticated %}
+            <p>Welcome, You are logged in as {{ user.username }}</p> &#160&#160&#160&#160
+            <a href="/logout?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Log Out</a>
+            {% else %}
+            <a href="{% provider_login_url 'google' %}?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link s-btn s-btn__filled py8 js-gps-track" rel="nofollow"
+                               data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+            {% endif %}
+</ol>
+
+    <li class="js-topbar-dialog-corral" role="presentation">
+    </ul>
+  </div>
+</nav>
+
+ {% block body %}{% endblock body %}
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    
+  </body>
+</html> 
+
+<!--
+<!DOCTYPE html>
+
+
+    <html class="html__responsive html__unpinned-leftnav">
+
+    <head>
+
+        <title>My Website</title>
+        <link rel="shortcut icon" href="https://yt3.ggpht.com/ytc/AKedOLSIeKOZUKU4hTNeGyw4EBnhAABb88kLA9LsMUL-=s900-c-k-c0x00ffffff-no-rj">
+        <link rel="apple-touch-icon" href="https://yt3.ggpht.com/ytc/AKedOLSIeKOZUKU4hTNeGyw4EBnhAABb88kLA9LsMUL-=s900-c-k-c0x00ffffff-no-rj">
+        <link rel="image_src" href="https://yt3.ggpht.com/ytc/AKedOLSIeKOZUKU4hTNeGyw4EBnhAABb88kLA9LsMUL-=s900-c-k-c0x00ffffff-no-rj"> 
+        <link rel="search" type="application/opensearchdescription+xml" title="My website" href="">
+        <meta name="description" content="This is my first website"/>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+        <meta property="og:type" content= "website" />
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content="My Website" />
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://yt3.ggpht.com/ytc/AKedOLSIeKOZUKU4hTNeGyw4EBnhAABb88kLA9LsMUL-=s900-c-k-c0x00ffffff-no-rj" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:domain" content=""/>
+        <meta name="twitter:title" property="og:title" itemprop="name" content="my website" />
+        <meta name="twitter:description" property="og:description" itemprop="description" content="This is my first website" />
+    <script id="webpack-public-path" type="text/uri-list">https://cdn.sstatic.net/</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script async src="https://cdn.sstatic.net/Js/third-party/stacks/stacks.min.js?v=4c00f8ce1b14"></script>
+    <script src="https://cdn.sstatic.net/Js/stub.en.js?v=02d19f44eb4e"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=556e4333f24c">
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=34c234f84be8">
+
+
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Product/product.css?v=227a4b9df501">
+    <script src="https://cdn.sstatic.net/Js/product-animations.en.js?v=f33619860823"></script>
+    <script src="https://cdn.sstatic.net/Js/product-lazy-load-images.en.js?v=222f22cfe7d9"></script>
+
+        <link rel="alternate" type="application/atom+xml" title="Feed of recent questions" href="/feeds">
+
+    <style>
+        .p-wrapper-home {
+            max-width: 1950px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .js-user-slider {
+            transition: width 0.2s, height 0.2s;
+        }
+        .js-user-slider span {
+            display: none;
+            opacity: 0;
+        }
+        .js-user-slider span:first-of-type {
+            display: block;
+            opacity: 1;
+        }
+        .js-user-slide-init {
+            transform: translate3d(0, -100%, 0);
+        }
+        .js-user-slider.js-loaded span {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: auto;
+            right: auto;
+        }
+        .js-user-slide-in {
+            animation: slideIn 1s forwards;
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+		        transform: translate3d(0, -150%, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate3d(0, -100%, 0);
+            }
+        }
+        .js-user-slide-out {
+            animation: slideOut 1s forwards;
+        }
+        @keyframes slideOut {
+            0% {
+                opacity: 1;
+		        transform: translate3d(0, -100%, 0);
+            }
+
+            30% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+        
+        .js-use-case p {
+            display: none;
+        }
+        .js-use-case.js-use-case--is-active p {
+            display: block;
+        }
+        .js-use-case.js-use-case--is-active h3 {
+            border-top-color: var(--black-500) !important;
+        }
+        .js-use-case.js-use-case--is-active svg {
+            color: var(--blue-500) !important;
+        }
+    </style>
+
+        
+        
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Channels/channels.css?v=47a5e0f03c81">
+        
+        
+        
+
+
+    <script>
+        StackExchange.init({"locale":"en","serverTime":1637830777,"routeName":"Home/Index","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"cookieDomain":".stackoverflow.com","childUrl":"https://meta.stackoverflow.com","negativeVoteScoreFloor":null,"enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"52d88cacfbfc7707ede6c772dddf0662a74181d79b0d6bb66357e5545b462471","tid":"6103c387-00da-30de-b272-1d90076eb9c6","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/stacks-icons","svgIconHash":"d9a8a2f90b12"}, {"userProfile":{"openGraphAPIKey":"4a307e43-b625-49bb-af15-ffadf2bda017"},"userMessaging":{"showNewFeatureNotice":true},"tags":{},"subscriptions":{"defaultBasicMaxTrueUpSeats":250,"defaultFreemiumMaxTrueUpSeats":50,"defaultMaxTrueUpSeats":1000},"snippets":{"renderDomain":"stacksnippets.net","snippetsEnabled":true},"site":{"allowImageUploads":true,"enableImgurHttps":true,"enableUserHovercards":true,"forceHttpsImages":true,"styleCode":true},"questions":{"enableDeleteVoteRetraction":true,"enableQuestionTitleLengthLiveWarning":true,"maxTitleSize":150,"questionTitleLengthStartLiveWarningChars":50},"intercom":{"appId":"inf0secd","hostBaseUrl":"https://stacksnippets.net"},"paths":{},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"markdown":{"enableTables":true},"legal":{"oneTrustConfigId":"c3d9f1e3-55f3-4eba-b268-46cee4c6789c"},"flags":{"allowRetractingCommentFlags":true,"allowRetractingFlags":true},"elections":{"opaVoteResultsBaseUrl":"https://www.opavote.com/results/"},"comments":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true}});
+        StackExchange.using.setCacheBreakers({"js/adops.en.js":"313e179ea0ea","js/ask.en.js":"d3f5a2b251c3","js/begin-edit-event.en.js":"f7efad9720cc","js/copy-transpiled.en.js":"6ada5dbf651b","js/cm.en.js":"94f4ee2a6fdf","js/events.en.js":"cefaa2d13054","js/explore-qlist.en.js":"0a3ee5e2a595","js/full-anon.en.js":"eaf28810f887","js/full.en.js":"d95bdc01391a","js/help.en.js":"d76732387c2d","js/highlightjs-loader.en.js":"e03c3b8a0daf","js/inline-tag-editing.en.js":"93d4cd02f8f5","js/keyboard-shortcuts.en.js":"e73366d7d3b7","js/markdown-it-loader.en.js":"1abb3979a895","js/modElections.en.js":"32f8d612a4ea","js/mobile.en.js":"950670930fc7","js/moderator.en.js":"98874c6c3ee0","js/postCollections-transpiled.en.js":"beb853c9b845","js/post-validation.en.js":"e6d51c784297","js/question-editor.en.js":"","js/review.en.js":"321de8cc7d62","js/review-v2-transpiled.en.js":"0ee0e5fb2ee9","js/revisions.en.js":"d02b336d101e","js/stacks-editor.en.js":"c84ccbed47e9","js/tageditor.en.js":"06f53b07b8d9","js/tageditornew.en.js":"286aed5a94a6","js/tagsuggestions.en.js":"6484787e9d37","js/unlimited-transpiled.en.js":"37026d063bef","js/wmd.en.js":"7777dbde83df","js/snippet-javascript-codemirror.en.js":"8859d57dea6f"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+    <body class="home-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+<header class="top-bar js-top-bar top-bar__network">
+    <div class="wmx12 mx-auto d-flex ai-center h100" role="menubar">
+        <div class="-main flex--item">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle" role="menuitem" aria-haspopup="true" aria-controls="left-sidebar" aria-expanded="false"><span class="ps-relative"></span></a>
+                <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                    <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm md lg"></div>
+                </div>
+                    <a href="" class="-logo js-gps-track"
+                        data-gps-track="top_nav.click({is_current:true, location:1, destination:8})">
+                        <span class=""><b>My website</b></span>
+                    </a>
+
+
+
+        </div>
+
+            <ol class="list-reset d-flex gs4" role="presentation">
+
+                    <li class="flex--item md:d-none">
+                        <a href="/about" class="-marketing-link js-gps-track"
+                           data-gps-track="top_nav.products.click({location:1, destination:7})"
+                            data-ga="[&quot;top navigation&quot;,&quot;about menu click&quot;,null,null,null]">About Us</a>
+                    </li>
+
+                    <li class="flex--item md:d-none">
+                        <a href="/contact" class="-marketing-link js-gps-track"
+                           data-gps-track="top_nav.products.click({location:1, destination:7})"
+                            data-ga="[&quot;top navigation&quot;,&quot;learn more - teams&quot;,null,null,null]">Contact Us</a>
+                    </li>
+
+                <li class="flex--item">
+                    <a href="#"
+                        class="-marketing-link js-gps-track js-products-menu"
+                        aria-controls="products-popover"
+                        data-controller="s-popover"
+                        data-action="s-popover#toggle"
+                        data-s-popover-placement="bottom"
+                        data-s-popover-toggle-class="is-selected"
+                        data-gps-track="top_nav.products.click({location:1, destination:1})"
+                        data-ga="[&quot;top navigation&quot;,&quot;products menu click&quot;,null,null,null]">
+                        Services
+                    </a>
+                </li>
+
+  
+            </ol>
+            <div class="s-popover ws2 mtn2 p0"
+                    id="products-popover"
+                    role="menu"
+                    aria-hidden="true">
+                <div class="s-popover--arrow"></div>
+                <ol class="list-reset s-anchors s-anchors__inherit">
+                    <li class="m6">
+                        <a href="/upload" class="bar-sm p6 d-block h:bg-black-100 js-gps-track"
+                           data-gps-track="top_nav.products.click({location:1, destination:2})"
+                           data-ga="[&quot;top navigation&quot;,&quot;public qa submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Upload</span>
+                            <span class="fs-caption d-block fc-light">Upload your Vaccination data</span>
+                        </a>
+                    </li>
+                    <li class="m6">
+                        <a href="/edit" class="bar-sm p6 d-block h:bg-black-100 js-gps-track"
+                           data-gps-track="top_nav.products.click({location:1, destination:3})"
+                           data-ga="[&quot;top navigation&quot;,&quot;teams submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Edit</span>
+                            <span class="fs-caption d-block fc-light">Edit your Vaccination data</span>
+                        </a>
+                    </li>
+                    <li class="m6">
+                        <a href="/view" class="bar-sm p6 d-block h:bg-black-100 js-gps-track"
+                            data-gps-track="top_nav.products.click({location:1, destination:9})"
+                            data-ga="[&quot;top navigation&quot;,&quot;jobs submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">View</span>
+                            <span class="fs-caption d-block fc-light">View your Vaccination data</span>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        
+        
+
+<ol class="overflow-x-auto ml-auto -secondary d-flex ai-center list-reset h100 user-logged-out" role="presentation">
+
+            {% if user.is_authenticated %}
+            <p>Welcome, You are logged in as {{ user.username }}</p> &#160&#160&#160&#160
+            <a href="/logout?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Log Out</a>
+            {% else %}
+            <a href="{% provider_login_url 'google' %}?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link s-btn s-btn__filled py8 js-gps-track" rel="nofollow"
+                               data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+            {% endif %}
+</ol>
+
+    </div>
+</header>
+
+</html>  
+
+-->
