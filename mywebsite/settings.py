@@ -126,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/admin-csi/CSI/csi/game/static'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
@@ -159,7 +160,3 @@ SITE_ID = 3
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-STATIC_ROOT = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'/media')
-MEDIA_URL = '/media/'
