@@ -18,25 +18,28 @@
   <label for="email" class="form-label">College Email address</label>
   <input type="email" class="form-control" id="email" name="email" placeholder="name_collegeid@nitc.ac.in">
 </div>
-
-<select class="mb-3" aria-label="status">
-  <option selected>Mention Your Vaccination Status</option>
-  <option value="1">Not yet Vaccinated</option>
-  <option value="2">Partially Vaccinated</option>
-  <option value="3">Fully Vaccinated</option>
+<select name="status" class="selectbox" id="status">
+  <option value="null" selected="">select Your Vaccination Status</option>
+  <option value="Not Yet Vaccinated">Not Yet Vaccinated</option>
+  <option value="Partially Vaccinated">Partially Vaccinated</option>
+  <option value="Fully Vaccinated">Fully Vaccinated</option>
 </select>
-
-<select class="mb-3" aria-label="proof">
-  <option selected>Which of the following is used for user verification</option>
-  <option value="1">Aadhaar Card</option>
-  <option value="2">PAN Card</option>
+<select name="proof" class="selectbox" id="proof">
+  <option value="null" selected="">Select Your Verification Proof</option>
+  <option value="Aadhar Card">Aadhar Card</option>
+  <option value="PAN Card">PAN Card</option>
+  <option value="Mobile Number">Mobile Number</option>
 </select>
-
 <div class="mb-3">
   <label for="verification ID" class="form-label">Enter the verified ID number</label>
-  <input type="text" class="form-control" name="verificationid" id="verification ID" >
-</div>
-<button class="btn btn-primary" type="submit">Submit</button>
-</form>
+  <input type="text" class="form-control" name="verificationid" id="verification ID" > 
+</div> 
+<!--<p> Upload the vaccination certificate if vaccinated </p>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="file" name="certificate"> 
+<button type="submit">Upload the file</button> <br> <br> -->
+<button class="btn btn-primary" input type="submit">Submit</button>
+</form> 
 </div>
 {% endblock body %}

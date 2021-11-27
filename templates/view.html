@@ -1,3 +1,18 @@
 {% extends 'base.html' %}
-{% block title  %} View {% endblock title  %}
-{% block body %} This is the block body for view{% endblock body %}
+{% block title  %} Display {% endblock title  %}
+{% block body %} 
+
+<div class="container">
+        <h1>Vaccination Data</h1>
+        {% for info in vacc_data%}
+        <strong>{{info.name}}</strong>
+        <ul>
+        <li>{{info.collegeid}}</li>
+        <li>{{info.email}}</li>
+        <li>{{info.status}}</li>
+        <li>{{info.proof}}</li>
+        <li>{{info.verificationid}}</li>
+        </ul>
+        {% endfor %}
+</div>
+{% endblock body %}

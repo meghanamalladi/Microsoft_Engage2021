@@ -7,49 +7,44 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <title>{% block title %}{% endblock title %} | TVT</title>
+    <title>{% block title %}{% endblock title %} |RIGGU</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">The Vaccine Tracker</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact Us</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Services
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/edit">Edit Data</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/view">View Data</a>
-        </div>
-
-       <ol class="overflow-x-auto ml-auto -secondary d-flex ai-center list-reset h100 user-logged-out" role="presentation">
-
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">RIGGU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/services">Services</a>
+        </li>
+    </ul>
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+    &#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160
+      <ol class="overflow-x-auto ml-auto -secondary d-flex ai-center list-reset h100 user-logged-out" role="presentation">
+        <form class= "d-flex">
             {% if user.is_authenticated %}
-            <p>Welcome, You are logged in as {{ user.username }}</p> &#160&#160&#160&#160
-            <a href="/logout?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Log Out</a>
+            <p style="color:white">Welcome, You are logged in as {{ user.username }}</p> &#160&#160&#160&#160
+            <a href="/logout?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="btn btn-secondary">Log Out</a>
             {% else %}
             <a href="{% provider_login_url 'google' %}?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link s-btn s-btn__filled py8 js-gps-track" rel="nofollow"
                                data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
             {% endif %}
-</ol>
-
-    <li class="js-topbar-dialog-corral" role="presentation">
-    </ul>
+        </form>
+    </div>
   </div>
 </nav>
 
@@ -62,6 +57,17 @@
     
   </body>
 </html> 
+
+<!--<ol class="overflow-x-auto ml-auto -secondary d-flex ai-center list-reset h100 user-logged-out" role="presentation">
+        <form class= "d-flex">
+            {% if user.is_authenticated %}
+            <p>Welcome, You are logged in as {{ user.username }}</p> &#160&#160&#160&#160
+            <a href="/logout?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="btn btn-secondary">Log Out</a>
+            {% else %}
+            <a href="{% provider_login_url 'google' %}?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f" class="login-link s-btn s-btn__filled py8 js-gps-track" rel="nofollow"
+                               data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+            {% endif %}
+        </form> -->
 
 <!--
 <!DOCTYPE html>
