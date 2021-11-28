@@ -4,6 +4,7 @@
 
 <div class="container">
         <h1>Vaccination Data</h1>
+        <br>
         {% for info in vacc_data%}
         <strong>{{info.name}}</strong>
         <ul>
@@ -12,6 +13,7 @@
         <li><strong>Vaccination Status:</strong> {{info.status}}</li>
         <li><strong>Verification Proof:</strong> {{info.proof}}</li>
         <li><strong>Verification Id:</strong> {{info.verificationid}}</li>
+        <li><strong>Vaccination pdf:</strong> <a href="media\{{info.verificationpdf}}">certificate</a></li>
         </ul>
         {% endfor %}
 </div>

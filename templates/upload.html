@@ -1,45 +1,17 @@
 {% extends 'base.html' %}
-{% block title  %} Upload {% endblock title  %}
-{% block body %} 
+{% block title  %}Upload/Edit {% endblock title  %}
+{% block body %}
 
 <div class="container mb-3 py-4">
-<h2 class="text-center"> Upload Your Vaccination Status Here </h2>
-<form method="post" action="/upload">
-{% csrf_token %}
-<div class="mb-3">
-  <label for="Name" class="form-label">Name</label>
-  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name">
-</div>
-<div class="mb-3">
-  <label for="College ID" class="form-label">College ID</label>
-  <input type="text" class="form-control" id="ID" name="collegeid" placeholder="B18XXXXXX">
-</div>
-<div class="mb-3">
-  <label for="email" class="form-label">College Email address</label>
-  <input type="email" class="form-control" id="email" name="email" placeholder="name_collegeid@nitc.ac.in">
-</div>
-<select name="status" class="selectbox" id="status">
-  <option value="null" selected="">select Your Vaccination Status</option>
-  <option value="Not Yet Vaccinated">Not Yet Vaccinated</option>
-  <option value="Partially Vaccinated">Partially Vaccinated</option>
-  <option value="Fully Vaccinated">Fully Vaccinated</option>
-</select>
-<select name="proof" class="selectbox" id="proof">
-  <option value="null" selected="">Select Your Verification Proof</option>
-  <option value="Aadhar Card">Aadhar Card</option>
-  <option value="PAN Card">PAN Card</option>
-  <option value="Mobile Number">Mobile Number</option>
-</select>
-<div class="mb-3">
-  <label for="verification ID" class="form-label">Enter the verified ID number</label>
-  <input type="text" class="form-control" name="verificationid" id="verification ID" > 
-</div> 
-<!--<p> Upload the vaccination certificate if vaccinated </p>
-<form method="post" enctype="multipart/form-data">
-{% csrf_token %}
-<input type="file" name="certificate"> 
-<button type="submit">Upload the file</button> <br> <br> -->
-<button class="btn btn-primary" input type="submit">Submit</button>
-</form> 
+  <h2 class="text-center"> Upload Your Vaccination Status Here </h2>
+  <br>
+  <br>
+  <form enctype="multipart/form-data" method="post" action="/upload">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit">
+  </form>
 </div>
 {% endblock body %}

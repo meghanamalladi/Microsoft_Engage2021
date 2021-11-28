@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
+from django.conf import settings #add this
+from django.conf.urls.static import static #add this
 
 
 admin.site.site_header = "TVT Admin"
@@ -24,8 +26,8 @@ admin.site.site_title = "TVT Admin Portal"
 admin.site.index_title = "Welcome to The Vaccine Tracker Portal"
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

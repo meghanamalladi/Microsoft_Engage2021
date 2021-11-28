@@ -1,7 +1,10 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render,HttpResponseRedirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from home.models import Upload,Contact
+from .forms import UploadForm
+
 
 # Create your views here.
 def home(request):
@@ -26,25 +29,21 @@ def edit(request):
     user_email = User.email
     Change = Upload.objects.filter(email=user_email)
     Change.delete()
-    upload(request)
-    return render(request,'upload.html')
+    return HttpResponseRedirect("/upload")
 
 def upload(request):
     if request.method == "POST":
-        name = request.POST.get('name')
-        collegeid = request.POST.get('collegeid')
-        email = request.POST.get('email')
-        status = request.POST.get('status')
-        proof = request.POST.get('proof')
-        verificationid = request.POST.get('verificationid')
-        edit = Upload(name=name, collegeid = collegeid, email = email, status = status, proof = proof, verificationid = verificationid)
-        edit.save()
-        #messages.success(request,'Details have been submitted')
-        #uploaded_file =  request.FILES['certificate']
-        #print(uploaded_file.name)
-        #print(uploaded_file.size)
-        return HttpResponseRedirect("/services")
-    return render(request,'upload.html')
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/")
+        else:
+            print("Error!")
+            return HttpResponseRedirect("/")
+    else:
+        form = UploadForm()
+        context = {'form':form}
+        return render(request,'upload.html',context)
 
 def view(request):
     User = request.user
