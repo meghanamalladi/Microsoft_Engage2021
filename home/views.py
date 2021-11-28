@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from home.models import Edit,Contact
+from home.models import Upload,Contact
 
 # Create your views here.
 def home(request):
@@ -21,13 +21,15 @@ def contact(request):
         return HttpResponseRedirect("/")
     return render(request,'contact.html')
 
-def upload(request):
+def edit(request):
     User = request.user
     user_email = User.email
-    Object = Edit.objects.filter(email=user_email)
+    Change = Upload.objects.filter(email=user_email)
+    Change.delete()
+    upload(request)
     return render(request,'upload.html')
 
-def edit(request):
+def upload(request):
     if request.method == "POST":
         name = request.POST.get('name')
         collegeid = request.POST.get('collegeid')
@@ -35,20 +37,20 @@ def edit(request):
         status = request.POST.get('status')
         proof = request.POST.get('proof')
         verificationid = request.POST.get('verificationid')
-        edit = Edit(name=name, collegeid = collegeid, email = email, status = status, proof = proof, verificationid = verificationid)
+        edit = Upload(name=name, collegeid = collegeid, email = email, status = status, proof = proof, verificationid = verificationid)
         edit.save()
         #messages.success(request,'Details have been submitted')
         #uploaded_file =  request.FILES['certificate']
         #print(uploaded_file.name)
         #print(uploaded_file.size)
-        return HttpResponseRedirect("/")
-    return render(request,'edit.html')
+        return HttpResponseRedirect("/services")
+    return render(request,'upload.html')
 
 def view(request):
     User = request.user
     user_email = User.email
     print(User)
     print(user_email)
-    vacc_data = Edit.objects.filter(email=user_email)
+    vacc_data = Upload.objects.filter(email=user_email)
     print(vacc_data)
     return render(request,'view.html',{'vacc_data':vacc_data})

@@ -7,11 +7,11 @@
         {% for info in vacc_data%}
         <strong>{{info.name}}</strong>
         <ul>
-        <li>{{info.collegeid}}</li>
-        <li>{{info.email}}</li>
-        <li>{{info.status}}</li>
-        <li>{{info.proof}}</li>
-        <li>{{info.verificationid}}</li>
+        <li><strong>College Id:</strong> {{info.collegeid}}</li>
+        <li><strong>Email Id:</strong> {{info.email}}</li>
+        <li><strong>Vaccination Status:</strong> {{info.status}}</li>
+        <li><strong>Verification Proof:</strong> {{info.proof}}</li>
+        <li><strong>Verification Id:</strong> {{info.verificationid}}</li>
         </ul>
         {% endfor %}
 </div>

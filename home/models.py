@@ -1,6 +1,6 @@
 from django.db import models
 
-class Edit(models.Model):
+class Upload(models.Model):
     name = models.CharField(max_length=122,default='Not Provided')
     collegeid = models.CharField(max_length=122,null=True,blank=True,default='Not Provided')
     email = models.CharField(max_length=122,default='Not Provided')
