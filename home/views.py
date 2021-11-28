@@ -22,6 +22,9 @@ def contact(request):
     return render(request,'contact.html')
 
 def upload(request):
+    User = request.user
+    user_email = User.email
+    Object = Edit.objects.filter(email=user_email)
     return render(request,'upload.html')
 
 def edit(request):
@@ -42,9 +45,10 @@ def edit(request):
     return render(request,'edit.html')
 
 def view(request):
-    vacc_data = Edit.objects.all()
+    User = request.user
+    user_email = User.email
+    print(User)
+    print(user_email)
+    vacc_data = Edit.objects.filter(email=user_email)
+    print(vacc_data)
     return render(request,'view.html',{'vacc_data':vacc_data})
-
-#def get_user(request):
-    #user_email = request.user.email
-    #return user_email
